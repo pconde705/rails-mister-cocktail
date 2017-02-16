@@ -1,8 +1,12 @@
-
-<h1><%= link_to "Create A Cocktail", new_cocktail_path(@cocktail) %></h1>
-
-<% @cocktails.each do |cocktail| %>
-
-  <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-
-<% end %>
+<div class="container">
+  <div class="text-center">
+    <h1><%= link_to "Create A Cocktail", new_cocktail_path(@cocktail), class: "main_title letter" %></h1>
+  </div>
+  <div class="row cards">
+      <%@cocktails.each do |cocktail| %>
+      <div class="col-sm-4">
+        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+      </div>
+      <% end %>
+  </div>
+</div>
