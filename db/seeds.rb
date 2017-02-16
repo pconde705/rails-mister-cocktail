@@ -11,3 +11,13 @@ require 'open-uri'
 ingredient_url = "http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 everything = open(ingredient_url).read
 ingredients_list = JSON.parse(everything)
+
+ingredients_hash = ingredients_list["drinks"]
+ingredients_names = []
+ingredients_hash.each do |key|
+  ingredients_names << key["strIngredient1"].to_s
+end
+
+ingredients_names.each do |name|
+  Ingredient.create(name: name)
+end
