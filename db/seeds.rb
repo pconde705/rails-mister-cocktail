@@ -21,3 +21,8 @@ end
 ingredients_names.each do |name|
   Ingredient.create(name: name)
 end
+
+url = "http://img.clubic.com/07791435-photo-playstation.jpg"
+cocktail = Cocktail.new(name: 'Playstation')
+cocktail.save!
+cocktail.photo_url = url

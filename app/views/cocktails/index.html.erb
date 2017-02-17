@@ -1,11 +1,18 @@
 <div class="container">
   <div class="text-center">
-    <h1><%= link_to "Create A Cocktail", new_cocktail_path(@cocktail), class: "main_title letter" %></h1>
+    <p><a><%= link_to "Create A Cocktail", new_cocktail_path(@cocktail), class: "main_title letter" %></a></p>
   </div>
-  <div class="row cards">
+  <div class="row">
       <%@cocktails.each do |cocktail| %>
       <div class="col-sm-4">
-        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+        <div class="card"
+          style="background-image:
+                 url('<%= cl_image_path cocktail_photo_path(cocktail), height: 300, width: 400, crop: :fill %>')">
+          <div class="card-category"></div>
+          <div class="card-description">
+            <h3><%= link_to cocktail.name, cocktail_path(cocktail), { class: "card_title" } %></h3>
+          </div>
+        </div>
       </div>
       <% end %>
   </div>
